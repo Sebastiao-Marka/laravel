@@ -12,7 +12,7 @@
   <x-header/>
  {{$slot}}
 
- {{--Footer--}}
+ {{--Footerapedeuta--}}
  <x-footer/>
 </body>
 </html>
