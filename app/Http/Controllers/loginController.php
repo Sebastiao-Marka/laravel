@@ -22,12 +22,22 @@ class loginController extends Controller
       if(Auth::attempt($credential)){
          $request->section()->regenerete();
 
-          return redirect()->intended(default: "/");
+          return redirect()->intended(route('site.dashboard'));
       }else{
       return back()->withErrors([
          'email' => 'Email invalido', 
       ]);
    }
+
+   }
+
+   public function logout(Request $request): RedirectResponse{
+      Auth::logout();
+         $request->section()->invalidate();
+         $request->section()->regeneretToken();
+
+
+         return redirect(route('site.index'));
 
    }
 }
